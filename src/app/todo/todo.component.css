@@ -1,0 +1,10 @@
+.list{
+    list-style-type: none;
+}
+.text{
+    font-size: 20px;
+    font-family:cursive;
+}
+.list .checked{
+    text-decoration: line-through;
+}

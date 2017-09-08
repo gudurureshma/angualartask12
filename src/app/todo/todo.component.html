@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row text-center">
+    <h1>TODO APP</h1>
+  </div>
+  <div class="row">
+    <div>
+      <input class="col-md-10" type="text" [(ngModel)]="inputText" (keyup.enter)="inputText=' '">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" [disabled]="inputText===''" (click)="addTodo()">ADD TO LIST</button>
+    </div>
+  </div>
+  <div class="row">
+    <div [hidden]="inputText">
+      type new todo
+    </div>
+    <div [hidden]="!inputText">
+      <p>Typing: {{inputText}}</p>
+    </div>
+  </div>
+  <ul>
+    <li class="list" *ngFor="let todo of todos; let i=index">
+      <input type="checkbox" [(ngModel)]="todo.completed" >
+      <span [ngClass]="{'checked': todo.completed}" class="text">{{todo.inputText}}</span>
+      <!-- <span class="text">{{todo.inputText}}</span> -->
+      <!-- <span (click)="deletetodo(i)">X</span> -->
+      <button class="btn btn-warning" (click)="deletetodo(i)" >DELETE TODO</button>
+    </li>
+  </ul>
+  <div class="row">
+      <button class="btn btn-danger" (click)="deleteSelectedTodos()">DELETE SELECTED</button>
+  </div>
+</div>
+
+
